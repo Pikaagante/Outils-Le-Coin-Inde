@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}
+Actus - Le Coin Indé
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <h1>Actu Indé</h1>
+
+    <p>
+    </p>
+
+</div>
+
+<div class="actus-tool">
+
+    <form method="POST">
+
+        <!-- Saisir les AppID -->
+        <div class="form-group">
+            <label for="app_ids">
+                AppID Steam
+            </label>
+
+            <!-- Un AppID par ligne -->
+            <textarea id="app_ids" name="app_ids" placeholder="123456&#10;789012&#10;345678">{{ app_ids }}</textarea>
+        </div>
+
+        <!-- Choix du format -->
+        <div class="format-section">
+            <div class="format-buttons">
+                <!-- Générer pour Discord -->
+                <button type="submit" name="format" value="discord" class="format-button discord">
+                    <strong>Discord</strong>
+                    <small>
+                        Générer le post Discord
+                    </small>
+                </button>
+                <!-- Générer pour Reddit -->
+                <button type="submit" name="format" value="reddit" class="format-button reddit">
+                    <strong>Reddit</strong>
+                    <small>
+                        Générer le post Reddit
+                    </small>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    {% if result %}
+
+    <div class="result-container actus-result">
+        <div class="result-header">
+            <h2>Résultat</h2>
+            <!-- Bouton pour copier -->
+            <button type="button" id="copy-button" onclick="copyResult()">
+                Copier
+            </button>
+        </div>
+        <pre id="result-text">{{ result }}</pre>
+    </div>
+
+    {% endif %}
+
+</div>
+
+<script>
+    // Fonction pour copier le résultat
+    function copyResult() {
+        // Récupère le texte
+        const result = document.getElementById("result-text").innerText;
+        navigator.clipboard.writeText(result);
+
+        // Récupère le bouton
+        const button = document.getElementById("copy-button");
+        button.innerText = "Copié !";
+
+        setTimeout(() => {
+            button.innerText = "Copier";
+        }, 2000);
+    }
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}
+Outils Images - Le Coin Indé
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Images</h1>
+
+</div>
+
+<!-- Outil Images -->
+<div class="image-tool">
+    <!-- Sélection de l'image -->
+    <div class="upload-zone">
+        <h2>Choisir une image</h2>
+        <p>
+            Sélectionne une cover depuis ton ordinateur.
+        </p>
+        <!-- Champ permettant de choisir un fichier -->
+        <input type="file" id="image-input" accept="image/png,image/jpeg,image/webp" hidden>
+        <button type="button" id="select-image">
+            Choisir une image
+        </button>
+    </div>
+
+
+    <!-- Aperçu de l'image -->
+    <div id="preview-container" class="preview-container" style="display: none;">
+        <h2>Image sélectionnée</h2>
+        <!-- Affiche l'image choisie -->
+        <img id="image-preview" src="" alt="Aperçu de l'image">
+        <!-- Affiche le nom du fichier -->
+        <p id="image-name"></p>
+    </div>
+
+
+    <!-- Options -->
+    <div id="options" class="options" style="display: none;">
+        <h2>Paramètres</h2>
+
+        <label for="filter">
+            Filtre
+        </label>
+
+        <!-- Choix du filtre -->
+        <select id="filter">
+            <option value="colors">
+                Couleurs
+            </option>
+            <option value="distortion">
+                Déformation
+            </option>
+            <option value="mosaic">
+                Mosaïque
+            </option>
+            <option value="hex">
+                Hexagones
+            </option>
+        </select>
+
+        <!-- Options du filtre Couleurs -->
+        <div id="colors-options" class="filter-options">
+            <label for="colors">
+                Nombre de couleurs
+            </label>
+
+            <input type="number" id="colors" min="2" max="20" value="4">
+
+            <p>
+                Moins il y a de couleurs,
+                plus l'image devient abstraite.
+            </p>
+        </div>
+
+
+        <!-- Options du filtre Déformation -->
+        <div id="distortion-options" class="filter-options" style="display: none;">
+
+            <label for="distortion">
+                Intensité de la déformation
+            </label>
+
+            <input type="range" id="distortion" min="0.1" max="1" step="0.05" value="0.4">
+
+            <span id="distortion-value">
+                0.4
+            </span>
+        </div>
+
+
+        <!-- Options du filtre Mosaïque -->
+        <div id="mosaic-options" class="filter-options" style="display: none;">
+            <label for="grid">
+                Taille de la grille
+            </label>
+
+            <input type="number" id="grid" min="3" max="30" value="12">
+
+            <p>
+                Une valeur élevée rend la mosaïque
+                plus difficile à reconnaître.
+            </p>
+        </div>
+
+
+        <!-- Options du filtre Hexagones -->
+        <div id="hex-options" class="filter-options" style="display: none;">
+            <label for="hex-size">
+                Taille des hexagones
+            </label>
+
+            <input type="number" id="hex-size" min="4" max="50" value="12">
+        </div>
+
+
+        <!-- Bouton de génération -->
+        <button type="button" id="generate-button" class="generate-button">
+            Générer l'image
+        </button>
+    </div>
+
+
+    <!-- Résultat -->
+    <div id="result-container" class="result-container" style="display: none;">
+        <h2>Résultat</h2>
+
+        <!-- Affiche l'image générée -->
+        <div class="result-image">
+            <img id="result-image" src="" alt="Image générée">
+        </div>
+
+        <!-- Bouton pour télécharger l'image -->
+        <a id="download-button" class="download-button" href="#" download="resultat.png">
+            Télécharger l'image
+        </a>
+
+    </div>
+
+</div>
+
+<!-- Charge le JavaScript de la page -->
+<script src="{{ url_for('static', filename='js/images.js') }}"></script>
+
+{% endblock %}
