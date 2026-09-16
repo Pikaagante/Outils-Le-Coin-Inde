@@ -1,0 +1,34 @@
+# Environnement Python
+venv/
+.venv/
+env/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+
+# Flask
+instance/
+
+# Images
+uploads/
+outputs/
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# Données locales
+data/
+
+# IDE
+.vscode/
+.idea/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
