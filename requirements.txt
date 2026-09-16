@@ -1,0 +1,6 @@
+Flask
+pandas
+odfpy
+Pillow
+opencv-python
+numpy
