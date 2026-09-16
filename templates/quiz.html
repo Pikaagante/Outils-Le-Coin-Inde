@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}
+Quiz - Le Coin Indé
+{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/quiz.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <h1>Gestion du Quiz</h1>
+
+    <p>
+        Rechercher et gérer les jeux utilisés dans le quiz.
+    </p>
+
+</div>
+
+
+<div class="quiz-filters">
+
+    <div>
+
+        <label for="recherche">
+            Rechercher
+        </label>
+
+        <input
+            type="text"
+            id="recherche"
+            placeholder="Nom du jeu...">
+
+    </div>
+
+
+    <div>
+
+        <label for="filtre-categorie">
+            Catégorie
+        </label>
+
+        <select id="filtre-categorie">
+
+            <option value="">
+                Toutes les catégories
+            </option>
+
+        </select>
+
+    </div>
+
+</div>
+
+
+<a
+    href="#ajout-jeu"
+    class="quiz-add-button">
+
+    + Ajouter un jeu
+
+</a>
+
+
+<div class="quiz-list-container">
+
+    <p id="nombre-jeux">
+        0 jeu
+    </p>
+
+    <div id="liste-jeux"></div>
+
+</div>
+
+
+<div
+    class="quiz-management"
+    id="ajout-jeu">
+
+
+    <div class="quiz-form">
+
+        <h2>Ajouter un jeu</h2>
+
+        <form id="form-ajout-jeu">
+
+            <div>
+
+                <label for="nom-jeu">
+                    Nom
+                </label>
+
+                <input
+                    type="text"
+                    id="nom-jeu"
+                    required>
+
+            </div>
+
+
+            <div>
+
+                <label for="categorie-jeu">
+                    Catégorie
+                </label>
+
+                <select
+                    id="categorie-jeu"
+                    required>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label for="context-jeu">
+                    Contexte
+                </label>
+
+                <input
+                    type="text"
+                    id="context-jeu">
+
+                <small>
+                    Optionnel.
+                </small>
+
+            </div>
+
+
+            <button type="submit">
+                Ajouter
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div class="quiz-form">
+
+        <h2>Créer une catégorie</h2>
+
+        <form id="form-ajout-categorie">
+
+            <div>
+
+                <label for="nom-categorie">
+                    Nom
+                </label>
+
+                <input
+                    type="text"
+                    id="nom-categorie"
+                    required>
+
+            </div>
+
+
+            <button type="submit">
+                Créer
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+
+{% endblock %}

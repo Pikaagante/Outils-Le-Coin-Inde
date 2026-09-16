@@ -1,0 +1,132 @@
+/* Indiecord */
+
+.indiecord-container {
+    background: #171a23;
+    border: 1px solid #292d38;
+    border-radius: 14px;
+    padding: 25px;
+}
+
+.indiecord-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.indiecord-header label {
+    display: block;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.indiecord-header select {
+    min-width: 250px;
+    padding: 12px;
+    background: #0f1117;
+    color: #ffffff;
+    border: 1px solid #343947;
+    border-radius: 8px;
+}
+
+
+/* Tableau */
+
+.indiecord-table-container {
+    overflow-x: auto;
+}
+
+#indiecord-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#indiecord-table th {
+    background: #11141b;
+    color: #ffffff;
+    text-align: left;
+    padding: 12px;
+}
+
+#indiecord-table td {
+    padding: 8px;
+    border-top: 1px solid #292d38;
+}
+
+#indiecord-table input,
+#indiecord-table select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background: #0f1117;
+    color: #ffffff;
+    border: 1px solid #343947;
+    border-radius: 6px;
+}
+
+
+/* Actions */
+
+.indiecord-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.indiecord-actions button,
+.indiecord-header button,
+.supprimer-ligne {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+#ajouter-ligne {
+    background: #5865f2;
+    color: white;
+}
+
+#sauvegarder {
+    background: #248046;
+    color: white;
+}
+
+#nouvelle-feuille {
+    background: #5865f2;
+    color: white;
+}
+
+.supprimer-ligne {
+    background: #ed4245;
+    color: white;
+}
+
+
+/* Message */
+
+#indiecord-message {
+    color: #8bd5a8;
+    margin-top: 15px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .indiecord-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .indiecord-header select {
+        min-width: 100%;
+    }
+
+    .indiecord-actions {
+        flex-direction: column;
+    }
+}

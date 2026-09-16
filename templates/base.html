@@ -13,14 +13,20 @@
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
 
+    {% block css %}
+    {% endblock %}
+
 </head>
 
 <body>
+
     <!-- Menu de navigation -->
     <nav>
         <a href="/">Accueil</a>
         <a href="/actus">Actus</a>
         <a href="/images">Images</a>
+        <a href="/quiz">Quiz</a>
+        <a href="/indiecord">Indiecord</a>
     </nav>
 
     <!-- Contenu principal -->
@@ -28,6 +34,7 @@
         {% block content %}
         {% endblock %}
     </main>
+
 </body>
 
 </html>

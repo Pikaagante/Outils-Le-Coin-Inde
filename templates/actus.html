@@ -4,13 +4,22 @@
 Actus - Le Coin Indé
 {% endblock %}
 
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/actus.css') }}">
+
+{% endblock %}
+
 {% block content %}
 
 <div class="page-header">
 
-    <h1>Actu Indé</h1>
+    <h1>Générateur d'actus</h1>
 
     <p>
+        Entre les AppID Steam des jeux pour générer automatiquement
+        le contenu.
     </p>
 
 </div>
@@ -19,48 +28,79 @@ Actus - Le Coin Indé
 
     <form method="POST">
 
-        <!-- Saisir les AppID -->
         <div class="form-group">
+
             <label for="app_ids">
                 AppID Steam
             </label>
 
-            <!-- Un AppID par ligne -->
-            <textarea id="app_ids" name="app_ids" placeholder="123456&#10;789012&#10;345678">{{ app_ids }}</textarea>
+            <p class="help-text">
+                Un AppID par ligne.
+            </p>
+
+            <textarea
+                id="app_ids"
+                name="app_ids"
+                placeholder="123456&#10;654321">{{ app_ids }}</textarea>
+
         </div>
 
-        <!-- Choix du format -->
         <div class="format-section">
+
+            <h2>Format</h2>
+
             <div class="format-buttons">
-                <!-- Générer pour Discord -->
-                <button type="submit" name="format" value="discord" class="format-button discord">
+
+                <button
+                    type="submit"
+                    name="format"
+                    value="discord"
+                    class="format-button">
+
+                    <span>💬</span>
+
                     <strong>Discord</strong>
-                    <small>
-                        Générer le post Discord
-                    </small>
+
+                    <small>Format pour Discord</small>
+
                 </button>
-                <!-- Générer pour Reddit -->
-                <button type="submit" name="format" value="reddit" class="format-button reddit">
+
+                <button
+                    type="submit"
+                    name="format"
+                    value="reddit"
+                    class="format-button">
+
+                    <span>🔴</span>
+
                     <strong>Reddit</strong>
-                    <small>
-                        Générer le post Reddit
-                    </small>
+
+                    <small>Format pour Reddit</small>
+
                 </button>
+
             </div>
+
         </div>
+
     </form>
 
     {% if result %}
 
-    <div class="result-container actus-result">
+    <div class="actus-result">
+
         <div class="result-header">
+
             <h2>Résultat</h2>
-            <!-- Bouton pour copier -->
-            <button type="button" id="copy-button" onclick="copyResult()">
+
+            <button id="copy-button">
                 Copier
             </button>
+
         </div>
+
         <pre id="result-text">{{ result }}</pre>
+
     </div>
 
     {% endif %}
@@ -68,20 +108,28 @@ Actus - Le Coin Indé
 </div>
 
 <script>
-    // Fonction pour copier le résultat
-    function copyResult() {
-        // Récupère le texte
-        const result = document.getElementById("result-text").innerText;
-        navigator.clipboard.writeText(result);
 
-        // Récupère le bouton
-        const button = document.getElementById("copy-button");
-        button.innerText = "Copié !";
+const copyButton = document.getElementById("copy-button");
+
+if (copyButton) {
+
+    copyButton.addEventListener("click", () => {
+
+        const texte = document.getElementById(
+            "result-text"
+        ).textContent;
+
+        navigator.clipboard.writeText(texte);
+
+        copyButton.textContent = "Copié !";
 
         setTimeout(() => {
-            button.innerText = "Copier";
-        }, 2000);
-    }
+            copyButton.textContent = "Copier";
+        }, 1500);
+
+    });
+
+}
 
 </script>
 

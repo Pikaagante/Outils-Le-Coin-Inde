@@ -1,0 +1,145 @@
+/* Outil Actus */
+
+.actus-tool {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+/* Formulaire */
+
+.form-group {
+    background: #171a23;
+    border: 1px solid #292d38;
+    border-radius: 14px;
+    padding: 25px;
+}
+
+.form-group label {
+    display: block;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.help-text {
+    color: #858c9b;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 180px;
+    resize: vertical;
+    padding: 15px;
+    background: #0f1117;
+    color: #ffffff;
+    border: 1px solid #343947;
+    border-radius: 9px;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #5865f2;
+}
+
+
+/* Format */
+
+.format-section {
+    background: #171a23;
+    border: 1px solid #292d38;
+    border-radius: 14px;
+    padding: 25px;
+}
+
+.format-section h2 {
+    color: #ffffff;
+    margin-bottom: 18px;
+}
+
+.format-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.format-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 20px;
+    background: #20242e;
+    border: 1px solid #303542;
+    border-radius: 10px;
+    color: #ffffff;
+}
+
+.format-button span {
+    font-size: 25px;
+}
+
+.format-button strong {
+    font-size: 16px;
+}
+
+.format-button small {
+    color: #858c9b;
+    font-size: 12px;
+}
+
+.format-button:hover {
+    background: #272c37;
+    border-color: #5865f2;
+}
+
+
+/* Résultat */
+
+.actus-result {
+    margin-top: 10px;
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.result-header h2 {
+    margin: 0;
+}
+
+#copy-button {
+    padding: 9px 14px;
+    font-size: 13px;
+}
+
+#result-text {
+    white-space: pre-wrap;
+    background: #0b0d12;
+    border: 1px solid #292d38;
+    border-radius: 10px;
+    padding: 20px;
+    color: #d9dde6;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .format-buttons {
+        grid-template-columns: 1fr;
+    }
+}
